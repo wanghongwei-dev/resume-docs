@@ -1,5 +1,5 @@
 /*! https://mths.be/cssescape v1.5.1 by @mathias | MIT license */
-;(function(root, factory) {
+; (function (root, factory) {
 	// https://github.com/umdjs/umd/blob/master/returnExports.js
 	if (typeof exports == 'object') {
 		// For Node.js.
@@ -11,14 +11,14 @@
 		// For browser globals (not exposing the function separately).
 		factory(root);
 	}
-}(typeof global != 'undefined' ? global : this, function(root) {
+}(typeof global != 'undefined' ? global : this, function (root) {
 
 	if (root.CSS && root.CSS.escape) {
 		return root.CSS.escape;
 	}
 
 	// https://drafts.csswg.org/cssom/#serialize-an-identifier
-	var cssEscape = function(value) {
+	var cssEscape = function (value) {
 		if (arguments.length == 0) {
 			throw new TypeError('`CSS.escape` requires an argument.');
 		}

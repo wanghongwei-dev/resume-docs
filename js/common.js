@@ -73,7 +73,7 @@
     }
   }
 
-  function initApiSpecLinks () {
+  function initApiSpecLinks() {
     var apiContent = document.querySelector('.content.api')
     if (apiContent) {
       var apiTitles = [].slice.call(apiContent.querySelectorAll('h3'))
@@ -99,7 +99,7 @@
       })
     }
 
-    function createSourceSearchPath (query) {
+    function createSourceSearchPath(query) {
       query = query
         .replace(/\([^\)]*?\)/g, '')
         .replace(/(Vue\.)(\w+)/g, '$1$2" OR "$2')
@@ -108,7 +108,7 @@
     }
   }
 
-  function parseRawHash (hash) {
+  function parseRawHash(hash) {
     // Remove leading hash
     if (hash.charAt(0) === '#') {
       hash = hash.substr(1)
@@ -117,11 +117,11 @@
     // Escape characters
     try {
       hash = decodeURIComponent(hash)
-    } catch (e) {}
+    } catch (e) { }
     return CSS.escape(hash)
   }
 
-  function initLocationHashFuzzyMatching () {
+  function initLocationHashFuzzyMatching() {
     var rawHash = window.location.hash
     if (!rawHash) return
     var hash = parseRawHash(rawHash)
@@ -140,17 +140,17 @@
       window.location.hash = '#' + possibleHashes[0]
     }
 
-    function normalizeHash (rawHash) {
+    function normalizeHash(rawHash) {
       return rawHash
         .toLowerCase()
         .replace(/\-(?:deprecated|removed|replaced|changed|obsolete)$/, '')
     }
 
-    function levenshteinDistance (a, b) {
+    function levenshteinDistance(a, b) {
       var m = []
       if (!(a && b)) return (b || a).length
-      for (var i = 0; i <= b.length; m[i] = [i++]) {}
-      for (var j = 0; j <= a.length; m[0][j] = j++) {}
+      for (var i = 0; i <= b.length; m[i] = [i++]) { }
+      for (var j = 0; j <= a.length; m[0][j] = j++) { }
       for (var i = 1; i <= b.length; i++) {
         for (var j = 1; j <= a.length; j++) {
           m[i][j] = b.charAt(i - 1) === a.charAt(j - 1)
@@ -168,7 +168,7 @@
    * Mobile burger menu button and gesture for toggling sidebar
    */
 
-  function initMobileMenu () {
+  function initMobileMenu() {
     var mobileBar = document.getElementById('mobile-bar')
     var sidebar = document.querySelector('.sidebar')
     var menuButton = mobileBar.querySelector('.menu-button')
@@ -208,7 +208,7 @@
   /**
   * Modal Video Player
   */
-  function initVideoModal () {
+  function initVideoModal() {
     var modalButton = document.getElementById('modal-player')
     var videoModal = document.getElementById('video-modal')
 
@@ -218,10 +218,10 @@
 
     var videoWrapper = videoModal.querySelector('.video-space')
     var overlay = document.createElement('div')
-        overlay.className = 'overlay'
+    overlay.className = 'overlay'
     var isOpen = false
 
-    modalButton.addEventListener('click', function(event) {
+    modalButton.addEventListener('click', function (event) {
       event.stopPropagation()
       videoModal.classList.toggle('open')
       document.body.classList.toggle('stop-scroll')
@@ -230,7 +230,7 @@
       isOpen = true
     })
 
-    document.body.addEventListener('click', function(e) {
+    document.body.addEventListener('click', function (e) {
       if (isOpen && e.target !== modalButton && !videoModal.contains(e.target)) {
         videoModal.classList.remove('open')
         document.body.classList.remove('stop-scroll')
@@ -245,7 +245,7 @@
    * Doc version select
    */
 
-  function initVersionSelect () {
+  function initVersionSelect() {
     // version select
     var versionSelect = document.querySelector('.version-select')
     versionSelect && versionSelect.addEventListener('change', function (e) {
@@ -265,7 +265,7 @@
    * Sub headers in sidebar
    */
 
-  function initSubHeaders () {
+  function initSubHeaders() {
     var each = [].forEach
     var main = document.getElementById('main')
     var header = document.getElementById('header')
@@ -326,12 +326,12 @@
 
       // make links clickable
       allHeaders
-        .filter(function(el) {
+        .filter(function (el) {
           if (!el.querySelector('a')) {
             return false
           }
           var demos = [].slice.call(document.querySelectorAll('demo'))
-          return !demos.some(function(demoEl) {
+          return !demos.some(function (demoEl) {
             return demoEl.contains(el)
           })
         })
@@ -355,7 +355,7 @@
     window.addEventListener('scroll', updateSidebar)
     window.addEventListener('resize', updateSidebar)
 
-    function updateSidebar () {
+    function updateSidebar() {
       var doc = document.documentElement
       var top = doc && doc.scrollTop || document.body.scrollTop
       if (animating || !allHeaders) return
@@ -373,7 +373,7 @@
         setActive(last.id, !hoveredOverSidebar)
     }
 
-    function makeLink (h) {
+    function makeLink(h) {
       var link = document.createElement('li')
       window.arst = h
       var text = [].slice.call(h.childNodes).map(function (node) {
@@ -387,12 +387,12 @@
       }).join('').replace(/\(.*\)$/, '')
       link.innerHTML =
         '<a class="section-link" data-scroll href="#' + h.id + '">' +
-          htmlEscape(text) +
+        htmlEscape(text) +
         '</a>'
       return link
     }
 
-    function htmlEscape (text) {
+    function htmlEscape(text) {
       return text
         .replace(/&/g, '&amp;')
         .replace(/"/g, '&quot;')
@@ -401,7 +401,7 @@
         .replace(/>/g, '&gt;')
     }
 
-    function collectH3s (h) {
+    function collectH3s(h) {
       var h3s = []
       var next = h.nextSibling
       while (next && next.tagName !== 'H2') {
@@ -413,7 +413,7 @@
       return h3s
     }
 
-    function makeSubLinks (h3s, small) {
+    function makeSubLinks(h3s, small) {
       var container = document.createElement('ul')
       if (small) {
         container.className = 'menu-sub'
@@ -424,7 +424,7 @@
       return container
     }
 
-    function setActive (id, shouldScrollIntoView) {
+    function setActive(id, shouldScrollIntoView) {
       var previousActive = sidebar.querySelector('.section-link.active')
       var currentActive = typeof id === 'string'
         ? sidebar.querySelector('.section-link[href="#' + id + '"]')
@@ -453,7 +453,7 @@
       }
     }
 
-    function makeHeaderClickable (header) {
+    function makeHeaderClickable(header) {
       var link = header.querySelector('a')
       link.setAttribute('data-scroll', '')
 
