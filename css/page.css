@@ -1940,6 +1940,15 @@ sup {
   color: #ff5722 !important;
 }
 
+/* ===== 项目经历条目中分隔职责和业绩空白占位 ===== */
+.project-item ul li.blank {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    height: 1.2em;
+    background: none;
+}
+
 /* ===== 工作/项目经历条目之间的细线分隔 ===== */
 .job-list .job-item:not(:last-child),
 .project-list .project-item:not(:last-child) {
