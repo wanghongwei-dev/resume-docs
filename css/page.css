@@ -1957,6 +1957,15 @@ sup {
   padding-bottom: 18px;
 }
 
+/* 本地公司/学校/证书小图标样式 */
+.logo-icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-right: 6px;
+  border-radius: 2px;
+}
+
 /* ===== 隐藏当前工作经历 ===== 
 .job-list .job-item:first-child {
   display: none;
