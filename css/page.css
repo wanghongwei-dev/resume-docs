@@ -1,4 +1,4 @@
-.gutter pre {
+换个.gutter pre {
   color: rgba(0, 0, 0, .4);
 }
 
@@ -1315,47 +1315,54 @@ sup {
   margin-top: 2px; /* 微调图标位置 */
 }
 
-/* 简历头部优化 - 更紧凑 */
+/* 简历头部优化 - 更紧凑统一 */
 .content .resume-header {
   display: block;
-  margin: 20px 0 25px; /* 减少上下边距 */
-  padding: 30px 20px; /* 减少内边距 */
+  margin: 15px 0 20px; /* 显著减少上下边距 */
+  padding: 25px 20px; /* 减少内边距 */
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 3px 10px rgba(0,0,0,0.08); /* 减轻阴影 */
 }
 
+/* 统一英雄区域文字样式 */
+.content .resume-header .basic-info,
+.content .resume-header .contact {
+  font-size: 15px; /* 统一字体大小 */
+  color: #495057;
+  line-height: 1.5; /* 统一行高 */
+  margin: 10px 0; /* 统一垂直间距 */
+}
+
+.content .resume-header .description {
+  font-size: 15px; /* 统一字体大小 */
+  color: #2196f3; /* 更改颜色为蓝色 */
+  line-height: 1.5; /* 统一行高 */
+  margin: 10px 0; /* 统一垂直间距 */
+  font-style: italic; /* 设置为斜体 */
+  font-weight: 500;
+}
+
 .content .resume-header h1 {
-  margin-top: 20px; /* 减少顶部边距 */
-  margin-bottom: 12px; /* 减少底部边距 */
+  margin-top: 15px; /* 减少顶部边距 */
+  margin-bottom: 10px; /* 减少底部边距 */
   font-size: 1.8em; /* 稍微减小标题字体 */
   color: #2c3e50;
   font-weight: 700;
 }
 
 .content .resume-header .description {
-  font-size: 16px; /* 减小描述字体 */
-  color: #6c757d;
-  margin-bottom: 15px; /* 减少底部边距 */
   font-style: normal;
-}
-
-.content .resume-header .contact {
-  font-size: 16px;
-  color: #495057;
+  font-weight: 500;
 }
 
 /* 英雄区域基本信息样式 */
 .content .resume-header .basic-info {
-  font-size: 16px;
-  color: #495057;
-  margin: 15px 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
-  line-height: 1.6;
 }
 
 .content .resume-header .basic-info .info-item {
@@ -1368,13 +1375,13 @@ sup {
 }
 
 .content img.avatar {
-  width: 100px;
-  height: 100px;
+  width: 90px; /* 稍微减小头像 */
+  height: 90px;
   display: block;
-  margin: 0 auto 20px;
+  margin: 0 auto 15px; /* 减少底部边距 */
   border-radius: 50%;
   border: 4px solid #ffffff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15); /* 减轻阴影 */
 }
 
 /* 侧边栏优化 */
@@ -1416,51 +1423,28 @@ sup {
   }
   
   .content .resume-header {
-    padding: 30px 16px;
-    margin: 16px 0 24px;
+    padding: 25px 16px; /* 与主样式一致 */
+    margin: 15px 0 20px; /* 与主样式一致 */
   }
   
-  .content .resume-header h1 {
-    font-size: 1.8em;
+  .content .resume-header .basic-info,
+  .content .resume-header .contact {
+    font-size: 14px; /* 移动端稍小字体 */
+  }
+  
+  .content .resume-header .description {
+    font-size: 14px; /* 移动端稍小字体 */
+    color: #2196f3; /* 保持蓝色 */
+    font-style: italic; /* 保持斜体 */
   }
   
   .content .resume-header .basic-info {
-    font-size: 14px;
     flex-direction: column;
     gap: 6px;
   }
   
   .content .resume-header .basic-info .separator {
     display: none;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .info-list {
-    grid-template-columns: 1fr;
-  }
-  
-  .education-list li,
-  .certificates-list li {
-    flex-direction: row; /* 移动端保持横向布局 */
-    text-align: left;
-    padding: 0.5em 0.7em; /* 进一步减少内边距 */
-    font-size: 14px; /* 移动端更小字体 */
-  }
-  
-  .education-list .logo-icon,
-  .certificates-list .logo-icon {
-    width: 28px; /* 移动端更小图标 */
-    height: 28px;
-    margin-right: 8px;
-  }
-  
-  .skills-summary {
-    padding: 1em;
-  }
-  
-  .contact-section {
-    padding: 1.2em; /* 减少联系方式区域padding */
   }
 }
 
@@ -1485,27 +1469,28 @@ sup {
     font-size: 15px;
   }
   
-  .job-item p,
-  .project-item p {
-    font-size: 16px;
+  .content .resume-header {
+    padding: 20px 12px; /* 最小内边距 */
+    margin: 12px 0 16px; /* 最小外边距 */
   }
   
-  .skills-list li {
-    padding: 0.6em;
-  }
-  
-  .education-list li,
-  .certificates-list li {
-    padding: 0.5em 0.6em;
+  .content .resume-header .basic-info,
+  .content .resume-header .contact {
     font-size: 13px; /* 最小字体 */
-    margin-bottom: 0.5em; /* 最小间距 */
+    margin: 8px 0; /* 最小间距 */
   }
   
-  .education-list .logo-icon,
-  .certificates-list .logo-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 6px;
+  .content .resume-header .description {
+    font-size: 13px; /* 最小字体 */
+    color: #2196f3; /* 保持蓝色 */
+    font-style: italic; /* 保持斜体 */
+    margin: 8px 0; /* 最小间距 */
+  }
+  
+  .content img.avatar {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 12px;
   }
 }
 
@@ -1539,193 +1524,6 @@ sup {
     border: 1pt solid #000;
     box-shadow: none;
   }
-}
-
-/* ===== 简历排版优化样式 ===== */
-
-/* 整体内容区域优化 */
-.content {
-  position: relative;
-  padding: 46px 0;
-  max-width: 800px; /* 增加最大宽度 */
-  margin: 0 auto;
-  padding-left: 40px;
-  text-align: justify;
-  line-height: 1.7; /* 增加行高提高可读性 */
-  font-size: 16px; /* 稍微增大基础字体 */
-}
-
-/* 标题样式优化 */
-.content h2 {
-  margin: 2em 0 1em; /* 增加上边距 */
-  padding-bottom: 0.5em;
-  border-bottom: 2px solid #2196f3; /* 加粗分割线 */
-  font-size: 1.8em; /* 增大标题字体 */
-  color: #2c3e50;
-  font-weight: 600;
-}
-
-.content h3 {
-  margin: 1.8em 0 0.8em;
-  font-size: 1.4em;
-  color: #34495e;
-  font-weight: 500;
-}
-
-/* 段落和列表优化 */
-.content p,
-.content ul,
-.content ol {
-  line-height: 1.8; /* 增加行高 */
-  margin-bottom: 1.2em; /* 增加段落间距 */
-  font-size: 16px;
-}
-
-.content ul,
-.content ol {
-  padding-left: 1.8em; /* 增加列表缩进 */
-}
-
-/* 列表项样式优化 */
-.content ul li,
-.content ol li {
-  margin-bottom: 0.8em; /* 增加列表项间距 */
-  padding-left: 0.3em;
-}
-
-/* 个人信息列表特殊样式 */
-.content > ul:first-of-type li {
-  margin-bottom: 0.6em;
-  font-size: 16px;
-}
-
-.content > ul:first-of-type strong {
-  color: #2c3e50;
-  font-weight: 600;
-  min-width: 80px;
-  display: inline-block;
-}
-
-/* 工作经历列表优化 - 移除左侧边条 */
-.job-list {
-  list-style: none;
-  padding-left: 0;
-}
-
-.job-item {
-  margin-bottom: 2em;
-  padding: 1.5em;
-  background: #fafafa;
-  border-radius: 8px;
-  /* 移除 border-left: 4px solid #2196f3; */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.job-item p {
-  font-weight: 600;
-  color: #2c3e50;
-  margin-bottom: 1em;
-  font-size: 17px;
-}
-
-.job-item ul {
-  padding-left: 1.5em;
-}
-
-.job-item ul li {
-  margin-bottom: 0.8em;
-  color: #34495e;
-  font-size: 15px;
-}
-
-/* 项目经历列表优化 - 移除左侧边条 */
-.project-list {
-  list-style: none;
-  padding-left: 0;
-}
-
-.project-item {
-  margin-bottom: 2em;
-  padding: 1.5em;
-  background: #f8f9fa;
-  border-radius: 8px;
-  /* 移除 border-left: 4px solid #4CAF50; */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.project-item p {
-  font-weight: 600;
-  color: #2c3e50;
-  margin-bottom: 1em;
-  font-size: 17px;
-}
-
-.project-item ul {
-  padding-left: 1.5em;
-}
-
-.project-item ul li {
-  margin-bottom: 0.8em;
-  color: #34495e;
-  font-size: 15px;
-}
-
-/* 教育背景和证书列表优化 */
-.content > ul:not(.job-list):not(.project-list):not(:first-of-type) li {
-  padding: 0.8em 1em;
-  margin-bottom: 0.8em;
-  background: #ffffff;
-  border-radius: 6px;
-  border: 1px solid #e9ecef;
-  font-size: 16px;
-  transition: all 0.2s ease;
-}
-
-.content > ul:not(.job-list):not(.project-list):not(:first-of-type) li:hover {
-  background: #f8f9fa;
-  border-color: #2196f3;
-  transform: translateX(4px);
-}
-
-/* 简历头部优化 */
-.content .resume-header {
-  display: block;
-  margin: 24px 0 32px;
-  padding: 40px 24px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.content .resume-header h1 {
-  margin-top: 24px;
-  margin-bottom: 16px;
-  font-size: 2em;
-  color: #2c3e50;
-  font-weight: 700;
-}
-
-.content .resume-header .description {
-  font-size: 18px;
-  color: #6c757d;
-  margin-bottom: 20px;
-  font-style: normal;
-}
-
-.content .resume-header .contact {
-  font-size: 16px;
-  color: #495057;
-}
-
-.content img.avatar {
-  width: 100px;
-  height: 100px;
-  display: block;
-  margin: 0 auto 20px;
-  border-radius: 50%;
-  border: 4px solid #ffffff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 /* 侧边栏优化 */
