@@ -722,7 +722,7 @@ body.docs #nav {
   left: 0;
   bottom: 0;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden; /* 默认隐藏垂直滚动条 */
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
 }
@@ -894,11 +894,13 @@ body.docs #nav {
     transition: all .4s cubic-bezier(.4, 0, 0, 1);
     -webkit-transform: translate(-280px, 0);
     transform: translate(-280px, 0);
+    overflow-y: hidden; /* 移动端隐藏外层滚动条 */
   }
 
   .sidebar .sidebar-inner {
     padding: 8px 8px 60px 16px;
     box-sizing: border-box;
+    overflow-y: auto; /* 内容超出时显示滚动条 */
   }
 
   .sidebar .sidebar-inner .footer {
@@ -922,7 +924,7 @@ body.docs #nav {
     margin: 0 auto;
   }
 
-  .sidebar.open {
+  .sidebar .open {
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
     width: 280px;
@@ -1118,856 +1120,1037 @@ sup {
 .content {
   position: relative;
   padding: 46px 0;
-  max-width: 720px;
+  max-width: 800px; /* 增加最大宽度 */
   margin: 0 auto;
   padding-left: 40px;
   text-align: justify;
+  line-height: 1.7; /* 增加行高提高可读性 */
+  font-size: 16px; /* 稍微增大基础字体 */
 }
 
-.content.api>a:first-of-type>h2 {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-.content.api ul {
-  padding-left: 1.25em;
-  line-height: 1.4em;
-}
-
-.content.api ul p:not(.tip),
-.content.api ul ul {
-  padding-bottom: 0;
-  margin: 1.2em 0;
-}
-
-.content .button {
-  color: #fff;
-}
-
-.content .button:hover {
-  color: #fff !important;
-}
-
-.content fancybox {
-  display: flex;
-}
-
-.content fancybox a {
-  margin: 0 1px;
-}
-
-.content fancybox img {
-  border-radius: 2px;
-}
-
-@media screen and (max-width: 425px) {
-  .content fancybox a {
-    margin: 0 .5px;
-  }
-
-  .content fancybox img {
-    border-radius: 1px;
-  }
-}
-
-.content img {
-  max-width: 100%;
-}
-
-.content span.light {
-  color: #7f8c8d;
-}
-
-.content span.info {
-  font-size: .85em;
-  display: inline-block;
-  vertical-align: middle;
-  width: 280px;
-  margin-left: 20px;
-}
-
-.content h2,
-.content h3 {
-  pointer-events: none;
-}
-
-.content h2 i,
-.content h3 i {
-  text-align: center;
-  width: 28px;
-  padding-right: 2px;
-}
-
-.content h2 a,
-.content h2 button,
-.content h3 a,
-.content h3 button {
-  pointer-events: auto;
-  color: #2c3e50;
-}
-
-.content h2:before,
-.content h3:before {
-  content: "";
-  display: block;
-  visibility: hidden;
-  height: 24px;
-}
-
+/* 强制显示标题样式 - 调试用 */
 .content h2 {
-  margin: 1.2em 0 0.3em;
-  padding-bottom: 0.3em;
-  border-bottom: 1px solid #ddd;
-  font-size: 1.6em;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #2c3e50 !important;
+  font-size: 1.8em !important;
+  font-weight: 600 !important;
+  margin: 2em 0 1em !important;
+  padding-bottom: 0.5em !important;
+  border-bottom: 2px solid #2196f3 !important;
 }
 
-@media screen and (max-width: 425px) {
-  .content h2 {
-    font-size: 1.4em;
-  }
+/* 确保标题内的图标和文字都可见 */
+.content h2 i {
+  display: inline-block !important;
+  margin-right: 8px !important;
+  color: #2196f3 !important;
 }
 
 .content h2 a {
+  display: inline !important;
+  color: inherit !important;
+}
+
+/* 标题样式优化 - 更紧凑的间距 */
+.content h2 {
+  margin: 1.5em 0 0.8em; /* 减少上下边距 */
+  padding-bottom: 0.4em; /* 减少底部padding */
+  border-bottom: 2px solid #2196f3;
+  font-size: 1.6em; /* 稍微减小标题字体 */
   color: #2c3e50;
+  font-weight: 600;
 }
 
 .content h3 {
-  margin: 3rem 0 0;
-  line-height: 1.2;
-  position: relative;
-  font-size: 1.4em;
-}
-
-@media screen and (max-width: 425px) {
-  .content h3 {
-    font-size: 1.3em;
-  }
-}
-
-.content h3 a,
-.content h3 button {
-  color: #2196f3;
-}
-
-.content h3>a:before {
-  color: #2196f3;
-  position: absolute;
-  left: -.7em;
-  padding-right: .5em;
-  font-size: 1.2em;
-  line-height: 1;
-  font-weight: 700;
-}
-
-.content h2+h3 {
-  margin-top: 0;
-}
-
-.content h4 {
-  margin: 2rem 0 0;
-  color: #22313f;
-  font-size: 16px;
-}
-
-.content figure {
-  margin: 1.2em 0;
-}
-
-.content ol,
-.content p,
-.content ul {
-  line-height: 1.6em;
-  position: relative;
-  z-index: 1;
-}
-
-.content ol,
-.content ul {
-  padding-left: 1.5em;
-  position: inherit;
-}
-
-.content ol.center,
-.content ul.center {
-  justify-content: center;
-}
-
-.content ol.pure,
-.content ul.pure {
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-}
-
-.content ol.pure li,
-.content ul.pure li {
-  margin: 8px;
-  display: flex;
-  width: 86px;
-  flex-direction: column;
-  align-items: stretch;
-  vertical-align: middle;
-  text-align: center;
-  font-size: .8em;
-  line-height: 1.2em;
-  overflow: hidden;
-}
-
-.content ol.pure li a,
-.content ul.pure li a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  color: #2c3e50;
-}
-
-.content ol.pure li img,
-.content ul.pure li img {
-  margin-bottom: 8px;
-}
-
-.content ol.pure.rounded img,
-.content ul.pure.rounded img {
-  border-radius: 25%;
-}
-
-.content ol.pure.circle img,
-.content ul.pure.circle img {
-  border-radius: 50%;
-}
-
-@media screen and (max-width: 900px) {
-
-  .content ol.pure.about,
-  .content ul.pure.about {
-    justify-content: center;
-  }
-}
-
-.content i.fa-fw {
-  text-align: justify;
-}
-
-.content a {
-  word-break: break-all;
-  color: #2196f3;
-  font-weight: 600;
-  transition: all .2s ease;
-  -moz-transition: all .2s ease;
-  -webkit-transition: all .2s ease;
-  -o-transition: all .2s ease;
-}
-
-.content a:hover {
-  color: #ff5722 !important;
-}
-
-.content blockquote {
-  margin: 16px 0;
-  padding: 16px;
-  border-left: 4px solid #2196f3;
-  background-color: #e6f2fc;
-  border-radius: 4px;
-}
-
-.content blockquote p {
-  margin-left: 0;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.content blockquote p:first-child {
-  margin-top: 0;
-}
-
-.content iframe {
-  margin: 1em 0;
-}
-
-.content>table {
-  word-break: break-all;
-  border-spacing: 0;
-  border-collapse: collapse;
-  margin: 1.2em auto;
-  width: 100%;
-  overflow-x: auto;
-}
-
-.content>table td,
-.content>table th {
-  line-height: 1.5em;
-  padding: .4em .8em;
-  border: none;
-  border: 1px solid #ddd;
-}
-
-.content>table td div:before,
-.content>table th div:before {
-  display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  width: 20px;
-  height: 16px;
-  text-align: center;
-}
-
-.content>table td div a,
-.content>table th div a {
-  color: inherit;
-}
-
-.content>table td div a:hover,
-.content>table th div a:hover {
-  color: inherit !important;
-  text-decoration: underline;
-}
-
-.content>table td div.unknown,
-.content>table th div.unknown {
-  color: #ffbd2d;
-}
-
-.content>table td div.unknown:before,
-.content>table th div.unknown:before {
-  content: "\f0ac";
-}
-
-.content>table td div.unsafe,
-.content>table th div.unsafe {
-  color: #ff6058;
-}
-
-.content>table td div.unsafe:before,
-.content>table th div.unsafe:before {
-  content: "\f059";
-}
-
-.content>table td div.safe,
-.content>table th div.safe {
-  color: #28c940;
-}
-
-.content>table td div.safe:before,
-.content>table th div.safe:before {
-  content: "\f023";
-}
-
-.content>table td div.plain:before,
-.content>table th div.plain:before {
-  content: "";
-  width: 0;
-}
-
-.content>table td div.safe.apple:before,
-.content>table th div.safe.apple:before {
-  content: "\f179";
-}
-
-.content>table td div.safe.google:before,
-.content>table th div.safe.google:before {
-  content: "\f1a0";
-}
-
-.content>table td div.safe.local:before,
-.content>table th div.safe.local:before {
-  content: "\f07c";
-}
-
-.content>table td div.safe.github:before,
-.content>table th div.safe.github:before {
-  content: "\f09b";
-}
-
-.content>table th {
-  font-weight: 700;
-  text-align: left;
-}
-
-.content>table th,
-.content>table tr:nth-child(2n) {
-  background-color: #f8f8f8;
-}
-
-.content>table th code,
-.content>table tr:nth-child(2n) code {
-  background-color: #efefef;
-}
-
-.content p.success,
-.content p.tip {
-  margin: 16px 0;
-  padding: 16px;
-  border-left-width: 4px;
-  border-left-style: solid;
-  background-color: #f8f8f8;
-  position: relative;
-  border-bottom-right-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-.content p.success:before,
-.content p.tip:before {
-  position: absolute;
-  top: 16px;
-  left: -12px;
-  color: #fff;
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
-  text-align: center;
-  line-height: 22px;
-  font-family: FontAwesome;
-  font-size: 12px;
-}
-
-.content p.success code,
-.content p.tip code {
-  background-color: #efefef;
-}
-
-.content p.success em,
-.content p.tip em {
-  color: #22313f;
-}
-
-.content p.tip {
-  border-left-color: #fe5f58;
-  background-color: rgba(254, 237, 236, .5);
-}
-
-.content p.tip:before {
-  content: "\f12a";
-  background-color: #fe5f58;
-}
-
-.content p.success {
-  border-left-color: #3dc550;
-  background-color: rgba(233, 247, 235, .5);
-}
-
-.content p.success:before {
-  content: "\f00c";
-  background-color: #3dc550;
-}
-
-.content p .flex {
-  display: flex;
-}
-
-.content p .flex a {
-  margin: 0 4px;
-}
-
-.content p .flex.around {
-  justify-content: space-around;
-}
-
-.content p .flex.start {
-  justify-content: flex-start;
-}
-
-.content p .flex.end {
-  justify-content: flex-end;
-}
-
-.content p .flex.center {
-  justify-content: center;
-}
-
-.content p .flex.between {
-  justify-content: space-between;
-}
-
-.content .readmore a,
-.content .readmore i,
-.content p a,
-.content p i {
-  margin: 0 2px;
-  text-align: center;
-}
-
-.content .readmore a,
-.content p a {
-  margin: 0 2px;
-}
-
-.content .readmore i {
-  width: 18px;
-}
-
-.guide-links {
-  margin-top: 2em;
-  height: 1em;
-}
-
-.footer {
-  color: #7f8c8d;
-  margin-top: 2em;
-  padding-top: 2em;
-  border-top: 1px solid #e5e5e5;
-  font-size: .9em;
-}
-
-#main.fix-sidebar {
-  position: static;
-}
-
-#main.fix-sidebar .sidebar {
-  position: fixed;
-}
-
-@media screen and (min-width: 1590px) {
-  #header {
-    background-color: rgba(255, 255, 255, .8);
-  }
-}
-
-@media screen and (min-width: 1300px) {
-  .content {
-    padding-left: 150px;
-  }
-}
-
-@media screen and (max-width: 1300px) {
-  .content.with-sidebar {
-    margin-left: 260px;
-  }
-
-  #ad {
-    z-index: 1;
-    position: relative;
-    padding: 0;
-    bottom: 0;
-    right: 0;
-    float: right;
-    padding: 0 0 20px 30px;
-  }
-}
-
-@media screen and (max-width: 900px) {
-  body {
-    -webkit-text-size-adjust: none;
-    font-size: 15px;
-  }
-
-  #header {
-    display: none;
-  }
-
-  #logo {
-    display: none;
-  }
-
-  .nav-link {
-    padding-bottom: 1px;
-  }
-
-  .nav-link.current,
-  .nav-link:hover {
-    border-bottom: 2px solid #2196f3;
-  }
-
-  #mobile-bar {
-    display: block;
-  }
-
-  #main {
-    padding: 2em 1.4em 0;
-  }
-
-  .highlight pre {
-    padding: 1.2em 1em;
-  }
-
-  .content {
-    padding-left: 0;
-  }
-
-  .content.with-sidebar {
-    margin: auto;
-  }
-
-  .content h2:before,
-  .content h3:before {
-    content: "";
-    display: block;
-    visibility: hidden;
-    height: 70px;
-  }
-
-  .content h2:before,
-  .content h3:before {
-    margin-top: -70px;
-  }
-
-  .footer {
-    margin-left: 0;
-    text-align: center;
-  }
-}
-
-@media screen and (max-width: 560px) {
-  #downloads {
-    text-align: center;
-    margin-bottom: 25px;
-  }
-
-  #downloads .info {
-    margin-top: 5px;
-    margin-left: 0;
-  }
-
-  iframe {
-    margin: 0 !important;
-  }
-}
-
-@media print {
-  .footer {
-    display: none;
-  }
-
-  .content {
-    padding-left: 0;
-  }
-
-  .content p {
-    line-height: 1.35em;
-  }
-
-  .content p.tip {
-    background-color: #fff;
-    border: 2px solid #e8e8e8;
-    border-left: 4px solid #f66;
-  }
-}
-
-[data-p=blue] {
-  color: #52a1f8;
-}
-
-[data-p=green] {
-  color: #3dc550;
-}
-
-[data-p=yellow] {
-  color: #ffbd2b;
-}
-
-[data-p=red] {
-  color: #fe5f58;
-}
-
-.content .resume-header {
-  display: block;
-  margin: 16px 0;
-  padding: 32px 16px;
-  background: #f8f8f8;
-  border-radius: 4px;
-}
-
-.content .resume-header h1 {
-  margin-top: 32px;
-  line-height: 1.2;
-  position: relative;
-  font-size: 1.4em;
-  text-align: center;
-}
-
-.content .resume-header .description {
-  text-align: center;
-  font-size: 16px;
-}
-
-.content .resume-header .social-btns {
-  text-align: center;
-}
-
-.content .resume-header .social-btns .social-link {
-  padding: 4px 8px;
-  margin: 0 8px;
-  border-radius: 2px;
-}
-
-.content img.avatar {
-  width: 80px;
-  height: 80px;
-  display: block;
-  margin: 16px auto;
-  margin-top: 16px;
-  border-radius: 50%;
-}
-
-.content p[subtitle] {
-  margin-top: 8px;
-}
-
-.content p[center] {
-  text-align: center;
-}
-
-.content btns {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 16px 0;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-@media screen and (max-width: 500px) {
-  .content btns {
-    justify-content: space-between;
-  }
-}
-
-.content btns a {
-  transition: all .28s ease;
-  -moz-transition: all .28s ease;
-  -webkit-transition: all .28s ease;
-  -o-transition: all .28s ease;
-  margin: 0;
-  display: flex;
-  justify-content: flex-start;
-  align-content: center;
-  align-items: center;
-  flex-direction: column;
-  line-height: 1.5;
-  padding: 8px 12px;
-  text-align: center;
-  font-size: 12.5px;
-  min-width: 48px;
-  width: 10%;
-  border-radius: 0;
+  margin: 1.5em 0 0.6em; /* 减少h3间距 */
+  font-size: 1.3em;
   color: #34495e;
+  font-weight: 500;
 }
 
-@media screen and (max-width: 425px) {
-  .content btns a {
-    width: calc(100% * .3 - 32px);
-  }
+/* 段落和列表优化 - 更紧凑的间距 */
+.content p,
+.content ul,
+.content ol {
+  line-height: 1.6; /* 稍微减少行高 */
+  margin-bottom: 1em; /* 减少段落间距 */
+  font-size: 15px; /* 稍微减小字体 */
 }
 
-@media screen and (max-width: 320px) {
-  .content btns a {
-    width: calc(100% * .5 - 32px);
-  }
+.content ul,
+.content ol {
+  padding-left: 1.5em; /* 稍微减少列表缩进 */
 }
 
-.content btns a>img:first-child {
-  transition: all .28s ease;
-  -moz-transition: all .28s ease;
-  -webkit-transition: all .28s ease;
-  -o-transition: all .28s ease;
-  height: 48px;
-  width: 48px;
-  margin: 16px 8px 8px 8px;
-  background: #fff;
-  line-height: 60px;
-  font-size: 28px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, .12), 0 2px 2px rgba(0, 0, 0, .08);
+/* 列表项样式优化 */
+.content ul li,
+.content ol li {
+  margin-bottom: 0.6em; /* 减少列表项间距 */
+  padding-left: 0.3em;
 }
 
-.content btns a img {
-  margin: .4em auto;
-}
-
-.content btns a:hover {
-  text-decoration: none;
-  border-radius: 8px;
-  background: rgba(255, 87, 34, .15);
-}
-
-.content btns a:hover>img:first-child {
-  transform: scale(1.1) translateY(-8px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, .12), 0 8px 16px rgba(0, 0, 0, .12), 0 16px 32px rgba(0, 0, 0, .12);
-}
-
-.content btns[circle]>a>img:first-child {
-  border-radius: 24px;
-}
-
-.content btns[rounded]>a>img:first-child {
-  border-radius: 12px;
-}
-
-.content div.time {
-  margin-top: 2px;
-  margin-bottom: 16px;
-}
-
-.content div.time span {
-  font-weight: 600;
-  font-size: 14px;
-  opacity: .75;
-}
-
-.content span.keyword {
-  margin-right: 12px;
-  font-weight: 700;
-  color: #ff5722;
+/* 个人信息列表特殊样式 */
+.content > ul:first-of-type li {
+  margin-bottom: 0.5em; /* 减少个人信息间距 */
   font-size: 15px;
 }
 
-.content span.keyword:before {
-  content: '#';
-  opacity: .5;
+.content > ul:first-of-type strong {
+  color: #2c3e50;
+  font-weight: 600;
+  min-width: 80px;
+  display: inline-block;
 }
 
-.resume-footer {
-  margin-top: 120px;
-  padding: 10px 0;
-  color: #7f8c8d;
-}
-
-.resume-footer p {
-  font-size: .9em;
-}
-
-.resume-footer a {
-  color: #7f8c8d;
-  transition: all .2s ease;
-  -moz-transition: all .2s ease;
-  -webkit-transition: all .2s ease;
-  -o-transition: all .2s ease;
-  text-decoration: underline;
-}
-
-.resume-footer a:hover {
-  color: #ff5722 !important;
-}
-
-/* ===== 项目经历条目中分隔职责和业绩空白占位 ===== */
-.project-item ul li.blank {
+/* 工作经历列表优化 - 移除左侧边条 */
+.job-list {
   list-style: none;
   padding-left: 0;
+}
+
+.job-item {
+  margin-bottom: 1.5em; /* 减少工作经历间距 */
+  padding: 1.2em; /* 减少内边距 */
+  background: #fafafa;
+  border-radius: 8px;
+  /* 移除 border-left: 4px solid #2196f3; */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* 减轻阴影 */
+}
+
+.job-item p {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.8em; /* 减少段落间距 */
+  font-size: 16px;
+}
+
+.job-item ul {
+  padding-left: 1.2em; /* 减少嵌套列表缩进 */
+}
+
+.job-item ul li {
+  margin-bottom: 0.6em; /* 减少列表项间距 */
+  color: #34495e;
+  font-size: 14px;
+}
+
+/* 项目经历列表优化 - 移除左侧边条 */
+.project-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.project-item {
+  margin-bottom: 1.5em; /* 减少项目经历间距 */
+  padding: 1.2em; /* 减少内边距 */
+  background: #f8f9fa;
+  border-radius: 8px;
+  /* 移除 border-left: 4px solid #4CAF50; */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* 减轻阴影 */
+}
+
+.project-item p {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.8em; /* 减少段落间距 */
+  font-size: 16px;
+}
+
+.project-item ul {
+  padding-left: 1.2em; /* 减少嵌套列表缩进 */
+}
+
+.project-item ul li {
+  margin-bottom: 0.6em; /* 减少列表项间距 */
+  color: #34495e;
+  font-size: 14px;
+}
+
+/* 教育背景和证书列表优化 - 更紧凑的布局 */
+.education-list,
+.certificates-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1em;
+}
+
+.education-list li,
+.certificates-list li {
+  padding: 0.6em 0.8em; /* 减少内边距 */
+  margin-bottom: 0.6em; /* 减少外边距 */
+  background: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* 减轻阴影 */
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  font-size: 15px; /* 稍微减小字体 */
+  line-height: 1.4; /* 减少行高 */
+}
+
+.education-list li:hover,
+.certificates-list li:hover {
+  transform: translateY(-1px); /* 减少悬停效果 */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border-color: #2196f3;
+}
+
+.education-list .logo-icon,
+.certificates-list .logo-icon {
+  width: 32px; /* 减小图标尺寸 */
+  height: 32px;
+  margin-right: 10px; /* 减少右边距 */
+  flex-shrink: 0;
+}
+
+/* 对于长证书名称的处理 */
+.certificates-list li {
+  align-items: flex-start; /* 顶部对齐 */
+}
+
+.certificates-list .logo-icon {
+  margin-top: 2px; /* 微调图标位置 */
+}
+
+/* 简历头部优化 - 更紧凑 */
+.content .resume-header {
+  display: block;
+  margin: 20px 0 25px; /* 减少上下边距 */
+  padding: 30px 20px; /* 减少内边距 */
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08); /* 减轻阴影 */
+}
+
+.content .resume-header h1 {
+  margin-top: 20px; /* 减少顶部边距 */
+  margin-bottom: 12px; /* 减少底部边距 */
+  font-size: 1.8em; /* 稍微减小标题字体 */
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+.content .resume-header .description {
+  font-size: 16px; /* 减小描述字体 */
+  color: #6c757d;
+  margin-bottom: 15px; /* 减少底部边距 */
+  font-style: normal;
+}
+
+.content .resume-header .contact {
+  font-size: 15px; /* 减小联系方式字体 */
+  color: #495057;
+}
+
+.content img.avatar {
+  width: 90px; /* 稍微减小头像 */
+  height: 90px;
+  display: block;
+  margin: 0 auto 15px; /* 减少底部边距 */
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15); /* 减轻阴影 */
+}
+
+/* 侧边栏优化 */
+.sidebar header h2 {
+  font-size: 1.8em;
+  color: #2c3e50;
+  margin-bottom: 16px;
+}
+
+.sidebar header .meta p {
+  margin: 8px 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.sidebar header a {
+  color: #2196f3;
+  font-weight: 500;
+}
+
+/* 响应式优化 */
+@media screen and (max-width: 900px) {
+  .content {
+    padding: 2em 1.4em 0;
+    max-width: 100%;
+    font-size: 15px;
+  }
+  
+  .content h2 {
+    font-size: 1.6em;
+    margin: 1.5em 0 0.8em;
+  }
+  
+  .job-item,
+  .project-item {
+    padding: 1.2em;
+    margin-bottom: 1.5em;
+    /* 移除 border-left 样式 */
+  }
+  
+  .content .resume-header {
+    padding: 30px 16px;
+    margin: 16px 0 24px;
+  }
+  
+  .content .resume-header h1 {
+    font-size: 1.8em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .info-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .education-list li,
+  .certificates-list li {
+    flex-direction: row; /* 移动端保持横向布局 */
+    text-align: left;
+    padding: 0.5em 0.7em; /* 进一步减少内边距 */
+    font-size: 14px; /* 移动端更小字体 */
+  }
+  
+  .education-list .logo-icon,
+  .certificates-list .logo-icon {
+    width: 28px; /* 移动端更小图标 */
+    height: 28px;
+    margin-right: 8px;
+  }
+  
+  .skills-summary {
+    padding: 1em;
+  }
+  
+  .contact-section {
+    padding: 1.2em; /* 减少联系方式区域padding */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content {
+    padding: 1.5em 1em 0;
+    font-size: 14px;
+  }
+  
+  .content h2 {
+    font-size: 1.5em;
+  }
+  
+  .job-item,
+  .project-item {
+    padding: 1em;
+    /* 移除 border-left 样式 */
+  }
+  
+  .content > ul:not(.job-list):not(.project-list):not(:first-of-type) li {
+    padding: 0.6em 0.8em;
+    font-size: 15px;
+  }
+  
+  .job-item p,
+  .project-item p {
+    font-size: 16px;
+  }
+  
+  .skills-list li {
+    padding: 0.6em;
+  }
+  
+  .education-list li,
+  .certificates-list li {
+    padding: 0.5em 0.6em;
+    font-size: 13px; /* 最小字体 */
+    margin-bottom: 0.5em; /* 最小间距 */
+  }
+  
+  .education-list .logo-icon,
+  .certificates-list .logo-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 6px;
+  }
+}
+
+/* 打印样式优化 */
+@media print {
+  .content {
+    padding: 0;
+    max-width: 100%;
+    font-size: 12pt;
+    line-height: 1.6;
+  }
+  
+  .content h2 {
+    border-bottom: 1pt solid #000;
+    margin: 1.5em 0 0.8em;
+    font-size: 16pt;
+  }
+  
+  .job-item,
+  .project-item {
+    background: none;
+    border: 1pt solid #000;
+    box-shadow: none;
+    margin-bottom: 1.2em;
+    padding: 1em;
+    /* 移除 border-left 样式 */
+  }
+  
+  .content .resume-header {
+    background: none;
+    border: 1pt solid #000;
+    box-shadow: none;
+  }
+}
+
+/* ===== 简历排版优化样式 ===== */
+
+/* 整体内容区域优化 */
+.content {
+  position: relative;
+  padding: 46px 0;
+  max-width: 800px; /* 增加最大宽度 */
+  margin: 0 auto;
+  padding-left: 40px;
+  text-align: justify;
+  line-height: 1.7; /* 增加行高提高可读性 */
+  font-size: 16px; /* 稍微增大基础字体 */
+}
+
+/* 标题样式优化 */
+.content h2 {
+  margin: 2em 0 1em; /* 增加上边距 */
+  padding-bottom: 0.5em;
+  border-bottom: 2px solid #2196f3; /* 加粗分割线 */
+  font-size: 1.8em; /* 增大标题字体 */
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.content h3 {
+  margin: 1.8em 0 0.8em;
+  font-size: 1.4em;
+  color: #34495e;
+  font-weight: 500;
+}
+
+/* 段落和列表优化 */
+.content p,
+.content ul,
+.content ol {
+  line-height: 1.8; /* 增加行高 */
+  margin-bottom: 1.2em; /* 增加段落间距 */
+  font-size: 16px;
+}
+
+.content ul,
+.content ol {
+  padding-left: 1.8em; /* 增加列表缩进 */
+}
+
+/* 列表项样式优化 */
+.content ul li,
+.content ol li {
+  margin-bottom: 0.8em; /* 增加列表项间距 */
+  padding-left: 0.3em;
+}
+
+/* 个人信息列表特殊样式 */
+.content > ul:first-of-type li {
+  margin-bottom: 0.6em;
+  font-size: 16px;
+}
+
+.content > ul:first-of-type strong {
+  color: #2c3e50;
+  font-weight: 600;
+  min-width: 80px;
+  display: inline-block;
+}
+
+/* 工作经历列表优化 - 移除左侧边条 */
+.job-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.job-item {
+  margin-bottom: 2em;
+  padding: 1.5em;
+  background: #fafafa;
+  border-radius: 8px;
+  /* 移除 border-left: 4px solid #2196f3; */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.job-item p {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1em;
+  font-size: 17px;
+}
+
+.job-item ul {
+  padding-left: 1.5em;
+}
+
+.job-item ul li {
+  margin-bottom: 0.8em;
+  color: #34495e;
+  font-size: 15px;
+}
+
+/* 项目经历列表优化 - 移除左侧边条 */
+.project-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.project-item {
+  margin-bottom: 2em;
+  padding: 1.5em;
+  background: #f8f9fa;
+  border-radius: 8px;
+  /* 移除 border-left: 4px solid #4CAF50; */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.project-item p {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1em;
+  font-size: 17px;
+}
+
+.project-item ul {
+  padding-left: 1.5em;
+}
+
+.project-item ul li {
+  margin-bottom: 0.8em;
+  color: #34495e;
+  font-size: 15px;
+}
+
+/* 教育背景和证书列表优化 */
+.content > ul:not(.job-list):not(.project-list):not(:first-of-type) li {
+  padding: 0.8em 1em;
+  margin-bottom: 0.8em;
+  background: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.content > ul:not(.job-list):not(.project-list):not(:first-of-type) li:hover {
+  background: #f8f9fa;
+  border-color: #2196f3;
+  transform: translateX(4px);
+}
+
+/* 简历头部优化 */
+.content .resume-header {
+  display: block;
+  margin: 24px 0 32px;
+  padding: 40px 24px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.content .resume-header h1 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-size: 2em;
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+.content .resume-header .description {
+  font-size: 18px;
+  color: #6c757d;
+  margin-bottom: 20px;
+  font-style: normal;
+}
+
+.content .resume-header .contact {
+  font-size: 16px;
+  color: #495057;
+}
+
+.content img.avatar {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* 侧边栏优化 */
+.sidebar header h2 {
+  font-size: 1.8em;
+  color: #2c3e50;
+  margin-bottom: 16px;
+}
+
+.sidebar header .meta p {
+  margin: 8px 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.sidebar header a {
+  color: #2196f3;
+  font-weight: 500;
+}
+
+/* 响应式优化 */
+@media screen and (max-width: 900px) {
+  .content {
+    padding: 2em 1.4em 0;
+    max-width: 100%;
+    font-size: 15px;
+  }
+  
+  .content h2 {
+    font-size: 1.6em;
+    margin: 1.5em 0 0.8em;
+  }
+  
+  .job-item,
+  .project-item {
+    padding: 1.2em;
+    margin-bottom: 1.5em;
+    /* 移除 border-left 样式 */
+  }
+  
+  .content .resume-header {
+    padding: 30px 16px;
+    margin: 16px 0 24px;
+  }
+  
+  .content .resume-header h1 {
+    font-size: 1.8em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content {
+    padding: 1.5em 1em 0;
+    font-size: 14px;
+  }
+  
+  .content h2 {
+    font-size: 1.5em;
+  }
+  
+  .job-item,
+  .project-item {
+    padding: 1em;
+    /* 移除 border-left 样式 */
+  }
+  
+  .content > ul:not(.job-list):not(.project-list):not(:first-of-type) li {
+    padding: 0.6em 0.8em;
+    font-size: 15px;
+  }
+}
+
+/* 打印样式优化 */
+@media print {
+  .content {
+    padding: 0;
+    max-width: 100%;
+    font-size: 12pt;
+    line-height: 1.6;
+  }
+  
+  .content h2 {
+    border-bottom: 1pt solid #000;
+    margin: 1.5em 0 0.8em;
+    font-size: 16pt;
+  }
+  
+  .job-item,
+  .project-item {
+    background: none;
+    border: 1pt solid #000;
+    box-shadow: none;
+    margin-bottom: 1.2em;
+    padding: 1em;
+    /* 移除 border-left 样式 */
+  }
+  
+  .content .resume-header {
+    background: none;
+    border: 1pt solid #000;
+    box-shadow: none;
+  }
+}
+
+/* ===== 新增的简历优化样式 ===== */
+
+/* 技能列表样式 - 更紧凑 */
+.skills-summary {
+  background: #ffffff;
+  padding: 1.2em; /* 减少内边距 */
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* 减轻阴影 */
+  margin-bottom: 1.2em; /* 减少底部边距 */
+}
+
+.skills-list {
+  margin-top: 0.8em; /* 减少顶部边距 */
+}
+
+.skills-list li {
+  margin-bottom: 0.8em; /* 减少列表项间距 */
+  padding: 0.6em; /* 减少内边距 */
+  background: #f8f9fa;
+  border-radius: 6px;
+  /* 移除 border-left: 3px solid #2196f3; */
+  font-size: 15px; /* 统一字体大小 */
+  line-height: 1.5; /* 适中的行高 */
+}
+
+.skills-list strong {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* 信息列表样式 - 更紧凑 */
+.info-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.6em; /* 减少网格间距 */
+  margin-top: 0.8em; /* 减少顶部边距 */
+}
+
+.info-list li {
+  padding: 0.5em 0.8em; /* 减少内边距 */
+  background: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+  font-size: 15px;
+}
+
+/* 教育和证书列表样式 */
+.education-list,
+.certificates-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.education-list li,
+.certificates-list li {
+  padding: 1em;
+  margin-bottom: 1em;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.education-list li:hover,
+.certificates-list li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-color: #2196f3;
+}
+
+.education-list .logo-icon,
+.certificates-list .logo-icon {
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+/* 联系方式区域样式 - 更紧凑 */
+.contact-section {
+  text-align: center;
+  padding: 1.5em; /* 减少内边距 */
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-top: 1em;
+  margin-bottom: 1em; /* 添加底部边距控制 */
+}
+
+.wechat-qrcode {
+  max-width: 150px; /* 减小二维码尺寸 */
+  height: auto;
+  display: block;
+  margin: 0 auto 0.8em; /* 减少底部边距 */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 6px; /* 减少内边距 */
+  background: #ffffff;
+}
+
+.contact-section p {
+  color: #6c757d;
+  font-size: 15px; /* 减小字体 */
   margin: 0;
-  height: 1.2em;
-  background: none;
+  line-height: 1.4; /* 减少行高 */
 }
 
-/* ===== 工作/项目经历条目之间的细线分隔 ===== */
-.job-list .job-item:not(:last-child),
-.project-list .project-item:not(:last-child) {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 18px;
-  padding-bottom: 18px;
+/* 项目经历中的嵌套列表样式 */
+.project-item ul ul {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
-/* 本地公司/学校/证书小图标样式 */
-.logo-icon {
-  width: 18px;
-  height: 18px;
-  vertical-align: middle;
-  margin-right: 6px;
-  border-radius: 2px;
+.project-item ul ul li {
+  margin-bottom: 0.6em;
+  font-size: 14px;
+  color: #495057;
 }
 
-/* ===== 隐藏当前工作经历 ===== 
-.job-list .job-item:first-child {
-  display: none;
+.project-item ul ul li:before {
+  content: "•";
+  color: #2196f3;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
 }
-*/
+
+/* 强调文字样式 */
+strong {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* 链接样式优化 */
+.content a {
+  color: #2196f3;
+  text-decoration: none;
+  border-bottom: 1px dotted #2196f3;
+  transition: all 0.2s ease;
+}
+
+.content a:hover {
+  color: #ff5722;
+  border-bottom-style: solid;
+}
+
+/* 图标样式优化 */
+.fas, .fab {
+  margin-right: 8px;
+  color: #2196f3;
+}
+
+/* 针对可能显示的虚线问题 */
+.content h2 a {
+  text-decoration: none !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.content h2 a:focus,
+.content h2 a:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* 固定侧边栏样式 */
+.fix-sidebar .sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 260px;
+  background: #fff;
+  z-index: 100;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  overflow-y: hidden; /* 隐藏垂直滚动条 */
+}
+
+.fix-sidebar .sidebar .sidebar-inner {
+  width: 260px;
+  padding: 20px;
+  height: 100%;
+  overflow-y: auto; /* 只在内部内容超出时显示滚动条 */
+  box-sizing: border-box;
+}
+
+/* 右侧内容区域调整 */
+.fix-sidebar .content.with-sidebar {
+  margin-left: 260px;
+  padding: 20px 40px;
+  max-width: none;
+}
+
+/* 右侧标题栏样式 */
+.content-header {
+  position: fixed;
+  top: 0;
+  left: 260px;
+  right: 0;
+  height: 60px;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.content-header h1 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* 调整主要内容区域的顶部边距 */
+.fix-sidebar .content.with-sidebar {
+  margin-left: 260px;
+  padding: 80px 40px 20px; /* 减少上边距以显示内容 */
+  max-width: none;
+}
+
+/* 移动端适配 */
+@media screen and (max-width: 900px) {
+  .fix-sidebar .sidebar {
+    position: fixed;
+    width: 280px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    overflow-y: hidden; /* 移动端也隐藏外层滚动条 */
+  }
+  
+  .fix-sidebar .sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .fix-sidebar .sidebar .sidebar-inner {
+    overflow-y: auto; /* 内容超出时才显示滚动条 */
+  }
+  
+  .fix-sidebar .content.with-sidebar {
+    margin-left: 0;
+    padding: 80px 20px 20px;
+  }
+  
+  .content-header {
+    left: 0;
+    padding: 0 20px;
+  }
+  
+  .sidebar.open ~ .content .content-header {
+    left: 280px;
+  }
+}
+
+/* 响应式优化 - 更紧凑的移动端布局 */
+@media screen and (max-width: 900px) {
+  .content {
+    padding: 1.5em 1.2em 0; /* 减少内边距 */
+    max-width: 100%;
+    font-size: 14px; /* 减小基础字体 */
+  }
+  
+  .content h2 {
+    font-size: 1.5em; /* 移动端标题字体 */
+    margin: 1.2em 0 0.6em; /* 减少间距 */
+  }
+  
+  .job-item,
+  .project-item {
+    padding: 1em; /* 减少内边距 */
+    margin-bottom: 1.2em; /* 减少间距 */
+  }
+  
+  .content .resume-header {
+    padding: 25px 15px; /* 减少内边距 */
+    margin: 15px 0 20px; /* 减少间距 */
+  }
+  
+  .content .resume-header h1 {
+    font-size: 1.6em; /* 移动端标题字体 */
+  }
+  
+  .skills-summary {
+    padding: 0.9em; /* 移动端技能区域内边距 */
+  }
+  
+  .skills-list li {
+    padding: 0.5em; /* 移动端技能列表内边距 */
+    font-size: 14px;
+  }
+  
+  .info-list {
+    gap: 0.5em; /* 移动端网格间距 */
+  }
+  
+  .info-list li {
+    padding: 0.4em 0.7em; /* 移动端信息列表内边距 */
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content {
+    padding: 1.2em 0.8em 0; /* 最小内边距 */
+    font-size: 13px; /* 最小字体 */
+  }
+  
+  .content h2 {
+    font-size: 1.4em;
+    margin: 1em 0 0.5em; /* 最小间距 */
+  }
+  
+  .job-item p,
+  .project-item p {
+    font-size: 15px; /* 移动端段落字体 */
+  }
+  
+  .job-item,
+  .project-item {
+    padding: 0.8em; /* 最小内边距 */
+  }
+  
+  .skills-list li {
+    padding: 0.4em; /* 最小内边距 */
+    font-size: 13px;
+  }
+  
+  .education-list li,
+  .certificates-list li {
+    padding: 0.4em 0.5em; /* 最小内边距 */
+    font-size: 12px;
+    margin-bottom: 0.4em; /* 最小间距 */
+  }
+  
+  .content .resume-header {
+    padding: 20px 12px; /* 最小内边距 */
+    margin: 12px 0 16px; /* 最小间距 */
+  }
+  
+  .content .resume-header h1 {
+    font-size: 1.5em; /* 最小标题字体 */
+  }
+  
+  .contact-section {
+    padding: 1em; /* 最小联系方式区域内边距 */
+  }
+  
+  .wechat-qrcode {
+    max-width: 120px; /* 最小二维码尺寸 */
+  }
+}

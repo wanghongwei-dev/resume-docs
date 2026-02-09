@@ -57,173 +57,234 @@
       </div>
     </div>
     <div class="content with-sidebar">
-      <div class="resume-header">
+      <!-- 右侧固定标题栏 -->
+      <div class="content-header">
+        <h1>汪宏伟的个人简历</h1>
+      </div>
+      
+      <!-- 简历头部 -->
+      <header class="resume-header">
         <div class="avatar">
-          <img no-lazy class="avatar" src="images/profile.jpg">
+          <img no-lazy class="avatar" src="images/profile.jpg" alt="汪宏伟个人头像">
         </div>
         <h1 class="resume-title">汪宏伟的个人简历</h1>
-        <p class="description" style="color: orange; font-style: italic;">持续学习，持续成长，做技术与责任并重的工程师。</p>
-        <p class="contact" style="text-align: center;"><i class="fas fa-phone fa-fw"></i> <a href="tel:15228322802"
-            rel="external nofollow noopener noreferrer" target="_blank">15228322802</a> | <i
-            class="fas fa-envelope fa-fw"></i> <a href="mailto:1172688836@qq.com"
-            rel="external nofollow noopener noreferrer" target="_blank">1172688836@qq.com</a></p>
-      </div>
-      <h2 id="基本信息">
-        <a href="#基本信息" class="headerlink" title=" 基本信息"></a>
-        <i class="fas fa-user-tie"></i> 基本信息
-      </h2>
-      <ul>
-        <li><strong>姓名</strong>：汪宏伟</li>
-        <li><strong>性别</strong>：男</li>
-        <li><strong>年龄</strong>：34岁</li>
-        <li><strong>工作经验</strong>：12年</li>
-        <li><strong>求职意向</strong>：运维开发工程师</li>
-        <li><strong>期望城市</strong>：成都</li>
-      </ul>
-      <h2 id="个人优势">
-        <a href="#个人优势" class="headerlink" title=" 个人优势"></a>
-        <i class="fas fa-star"></i> 个人优势
-      </h2>
-      <ul>
-        <p class="description">深耕运维领域12年，具备从传统IDC到现代云原生体系的全栈技术视野与实战经验。擅长通过自动化工具链与稳定性体系建设，驱动运维效率提升、资源成本优化与系统高可用保障。</p>
+        <p class="description">持续学习，持续成长，做技术与责任并重的工程师。</p>
+        <p class="contact">
+          <i class="fas fa-phone fa-fw"></i> 
+          <a href="tel:15228322802" rel="external nofollow noopener noreferrer" target="_blank">15228322802</a> | 
+          <i class="fas fa-envelope fa-fw"></i> 
+          <a href="mailto:1172688836@qq.com" rel="external nofollow noopener noreferrer" target="_blank">1172688836@qq.com</a>
+        </p>
+      </header>
 
-        <p class="description">核心技术栈：</p>
-        <li>云与虚拟化：OpenStack、VMware vSphere等私有云；阿里云、天翼云等公有云；精通资源池化、高可用架构设计。</li>
-        <li>容器与云原生：Kubernetes、Helm、Docker、GitOps；具备百节点级生产集群的规划、部署、运维与性能调优经验。</li>
-        <li>存储系统：Ceph（块/文件/对象），精通CRUSH Map调优、性能诊断与容量规划；有PB级集群运维经验。</li>
-        <li>自动化与开发：Python、Shell、Ansible、Terraform；具备运维工具与CI/CD流水线开发实战经验。</li>
-        <li>监控与网络：Prometheus、Grafana、Zabbix、ELK；熟悉数据中心网络规划，精通VLAN、IPSec、策略路由等配置。</li>
-      </ul>
-      <ul>
-      </ul>
-      <h2 id="工作经历">
-        <a href="#工作经历" class="headerlink" title=" 工作经历"></a>
-        <i class="fas fa-briefcase"></i> 工作经历
-      </h2>
-      <ul class="job-list">
-        <li class="job-item">
-          <p><img src="images/logos/job_hydsoft.jpg" alt="慧博云通" class="logo-icon">慧博云通科技股份有限公司 - 运维开发工程师 (2024.07 - 至今)
-          </p>
-          <ul>
-            <li>专家技术支持：作为三线运维专家，深度处理客户复杂操作系统问题，年均闭环疑难案例200+，客户满意度达98%。</li>
-            <li>OS生态构建：主导CTyunOS用户态4000+软件RPM包的迭代开发与生态维护，通过建立自动化构建系统，将软件包交付周期缩短40%。</li>
-            <li>性能诊断与调优：针对云主机性能及网络I/O瓶颈，实施内核参数调优与模块诊断，在典型高并发场景下将系统吞吐性能提升15%。</li>
+      <!-- 基本信息 -->
+      <section>
+        <h2 id="基本信息">
+          <i class="fas fa-user"></i> 基本信息
+        </h2>
+        <ul class="info-list">
+          <li><strong>姓名</strong>：汪宏伟</li>
+          <li><strong>性别</strong>：男</li>
+          <li><strong>年龄</strong>：35岁</li>
+          <li><strong>工作经验</strong>：12年</li>
+          <li><strong>求职意向</strong>：运维开发工程师</li>
+          <li><strong>期望城市</strong>：成都</li>
+        </ul>
+      </section>
+
+      <!-- 个人优势 -->
+      <section>
+        <h2 id="个人优势">
+          <i class="fas fa-star"></i> 个人优势
+        </h2>
+        <div class="skills-summary">
+          <p class="description">深耕运维领域12年，具备从传统IDC到现代云原生体系的全栈技术视野与实战经验。擅长通过自动化工具链与稳定性体系建设，驱动运维效率提升、资源成本优化与系统高可用保障。</p>
+          
+          <p class="description"><strong>核心技术栈：</strong></p>
+          <ul class="skills-list">
+            <li><strong>云与虚拟化</strong>：OpenStack、VMware vSphere等私有云；阿里云、天翼云等公有云；精通资源池化、高可用架构设计。</li>
+            <li><strong>容器与云原生</strong>：Kubernetes、Helm、Docker、GitOps；具备百节点级生产集群的规划、部署、运维与性能调优经验。</li>
+            <li><strong>存储系统</strong>：Ceph（块/文件/对象），精通CRUSH Map调优、性能诊断与容量规划；有PB级集群运维经验。</li>
+            <li><strong>自动化与开发</strong>：Python、Shell、Ansible、Terraform；具备运维工具与CI/CD流水线开发实战经验。</li>
+            <li><strong>监控与网络</strong>：Prometheus、Grafana、Zabbix、ELK；熟悉数据中心网络规划，精通VLAN、IPSec、策略路由等配置。</li>
           </ul>
-        </li>
-        <li class="job-item">
-          <p><img src="images/logos/job_ccssoft.jpg" alt="中通服" class="logo-icon">中通服软件科技有限公司 - 运维开发工程师 (2021.08 -
-            2024.03)</p>
-          <ul>
-            <li>多云资源池统一运维：全面负责上海生产资源池的稳定运行，涵盖VMware、OpenStack及公有云资源，实现年度SLA 99.95%。</li>
-            <li>云原生应用部署：基于OpenShift构建容器平台，通过Docker化与CI/CD标准化，支撑10+项目200+应用实现自动化部署，资源交付效率提升70%。</li>
-            <li>分布式存储优化：独立负责Ceph集群的架构设计和性能调优，完成两次无损扩容，集群三年内保持99.99%的可用性。</li>
-          </ul>
-        </li>
-        <li class="job-item">
-          <p><img src="images/logos/job_thunisoft.jpg" alt="华宇" class="logo-icon">北京华宇信息技术有限公司 - 运维工程师 (2019.08 -
-            2021.08)</p>
-          <ul>
-            <li>私有云从0到1建设：独立负责成都研发中心私有云的整体搭建和运维，以及VM全生命周期管理，为上百名开发者提供IaaS服务。</li>
-            <li>构建监控日志中心：部署Zabbix、Prometheus+Grafana及ELK栈，实现基础设施的全栈可观测性，将MTTD（故障平均发现时间）从小时级降至分钟级。</li>
-            <li>网络架构升级：主导新办公区网络规划，设计并实施三层网络架构，管理30+台网络设备，保障了百人团队零中断接入。</li>
-          </ul>
-        </li>
-        <li class="job-item">
-          <p><img src="images/logos/job_51job.jpg" alt="前锦网络/51job" class="logo-icon">前锦网络信息技术（上海）有限公司 - 运维工程师 (2017.08
-            - 2019.08)</p>
-          <ul>
-            <li>负责研发中心基础设施运维，并参与自动化运维体系建设。</li>
-          </ul>
-        </li>
-        <li class="job-item">
-          <p><img src="images/logos/job_aztv.jpg" alt="安州电视台" class="logo-icon">绵阳市安州区文化广电新闻出版局 - 技术助理 (2013.10 -
-            2017.02)</p>
-          <ul>
-            <li>从事传统IT系统与网络运维，奠定扎实的基础设施管理功底。</li>
-          </ul>
-        </li>
-      </ul>
-      <h2 id="项目经历">
-        <a href="#项目经历" class="headerlink" title=" 项目经历"></a>
-        <i class="fas fa-award"></i> 项目经历
-      </h2>
-      <ul class="project-list">
-        <li class="project-item">
-          <p><i class="fas fa-cloud"></i> 中国通服上海云资源池运维项目 - 云计算运维工程师、云基础设施负责人 (2022.01 - 2024.03)</p>
-          <ul>
-            <li>背景：所管理的上海核心生产资源池（1500+VM，8集群，800TB+存储）面临性能波动与故障定位效率低的挑战。 </li>
-            <li>行动：
-              网络优化：梳理并优化超100条NAT与45条IPSec VPN策略，引入流量分析与抓包诊断标准化流程。
-              性能调优：对Ceph存储进行深度优化，通过变更存储配置，调整PG分布及OSD参数，并重构CRUSH Map以匹配机房硬件拓扑。</li>
-            <li>成果：
-              网络相关故障的排查平均时间从2小时降至30分钟以内。
-              存储集群可用容量提升20%，实现了对资源池性能与容量的精准预测，为年度预算规划提供了可靠数据支撑。</li>
-          </ul>
-        </li>
-        <li class="project-item">
-          <p><i class="fas fa-code"></i> 中通软创新中台云平台运维开发 - 云运维开发工程师 (2021.08 - 2021.12)</p>
-          <ul>
-            <li>背景：公司云管产品微服务化后，手动部署低效且易出错，需构建云原生部署体系。</li>
-            <li>使用Go模板语言编写Helm Chart，并于Rancher平台验证成功，实现了公司产品的一键部署。</li>
-            <li>行动：
-              Chart开发：使用Go Template语言为20+微服务编写Helm Chart，集成命名模板、服务发现、Cert-Manager证书管理。
-              生命周期管理：巧妙运用Chart Hooks与Pod生命周期钩子（PostStart），实现服务部署后自动注册到Consul，保障了部署流程的幂等性与安全性。</li>
-            <li>成果：
-              作为开发主力，从0到1设计并实现了公司核心产品一键交付方案，成功在Rancher平台一键部署。
-              彻底解决了微服务间通信的证书管理与服务发现难题，将新环境准备时间从人天级缩短至1小时。</li>
-          </ul>
-        </li>
-        <li class="project-item">
-          <p><i class="fas fa-network-wired"></i> 成都研发中心网络规划设计与实现 - 网络规划设计师 (2019.08 - 2019.12)</p>
-          <ul>
-            <li>背景：公司研发中心整体搬迁至新办公地址，需对原网络进行架构升级，以支撑500人研发团队。</li>
-            <li>行动：
-              架构设计与标准化：规划设计核心-汇聚-接入三层网络架构，根据业务逻辑严格划分VLAN并实施策略隔离。
-              安全与无线一体化部署：集成防火墙、上网行为管理及无线控制器，精准规划40+个高密度无线AP点位，实现全区域无缝千兆覆盖。</li>
-            <li>成果：
-              网络一次性成功割接上线，核心网络可用性达99.99%，稳定支撑了后续所有研发业务。
-              构建了具备弹性的网络底座，在之后3年内未进行大规模改造，顺利支撑了研发团队规模与业务流量的翻倍增长。</li>
-          </ul>
-        </li>
-      </ul>
-      <h2 id="教育背景">
-        <a href="#教育背景" class="headerlink" title=" 教育背景"></a>
-        <i class="fas fa-user-graduate"></i> 教育背景
-      </h2>
-      <ul>
-        <li><img src="images/logos/edu_uestc.jpg" alt="电子科技大学" class="logo-icon">电子科技大学 - 计算机科学与技术 本科·学士学位 (2021.09 -
-          2025.06)</li>
-        <li><img src="images/logos/edu_swust.jpg" alt="西南科技大学" class="logo-icon">西南科技大学 - 应用电子技术 大专 (2010.09 - 2013.06)
-        </li>
-      </ul>
-      <h2 id="资格证书">
-        <a href="#资格证书" class="headerlink" title=" 资格证书"></a>
-        <i class="fas fa-certificate"></i> 资格证书
-      </h2>
-      <ul>
-        <li><img src="images/logos/edu_ruankao.jpg" alt="软考" class="logo-icon">计算机技术与软件专业技术资格（水平）证书 - 高级 系统分析师 (2022.05)
-        </li>
-        <li><img src="images/logos/edu_ruankao.jpg" alt="软考" class="logo-icon">计算机技术与软件专业技术资格（水平）证书 - 高级 系统规划与管理师
-          (2021.05)</li>
-        <li><img src="images/logos/edu_ruankao.jpg" alt="软考" class="logo-icon">计算机技术与软件专业技术资格（水平）证书 - 高级 系统架构设计师
-          (2020.11)</li>
-        <li><img src="images/logos/edu_ruankao.jpg" alt="软考" class="logo-icon">计算机技术与软件专业技术资格（水平）证书 - 中级 网络工程师 (2019.11)
-        </li>
-      </ul>
-      <h2 id="与我联系">
-        <a href="#与我联系" class="headerlink" title=" 与我联系"></a>
-        <i class="fab fa-weixin"></i> 与我联系
-      </h2>
-      <img src="images/wechat_qr.jpg" alt="微信扫码加好友"
-        style="max-width: 200px; height: auto; display: block; margin-top: 8px;">
+        </div>
+      </section>
+
+      <!-- 工作经历 -->
+      <section>
+        <h2 id="工作经历">
+          <i class="fas fa-briefcase"></i> 工作经历
+        </h2>
+        <ul class="job-list">
+          <li class="job-item">
+            <p>
+              <img src="images/logos/job_hydsoft.jpg" alt="慧博云通" class="logo-icon">慧博云通科技股份有限公司 - 运维开发工程师 (2024.07 - 至今)
+            </p>
+            <ul>
+              <li>专家技术支持：作为三线运维专家，深度处理客户复杂操作系统问题，年均闭环疑难案例200+，客户满意度达98%。</li>
+              <li>OS生态构建：主导CTyunOS用户态4000+软件RPM包的迭代开发与生态维护，通过建立自动化构建系统，将软件包交付周期缩短40%。</li>
+              <li>性能诊断与调优：针对云主机性能及网络I/O瓶颈，实施内核参数调优与模块诊断，在典型高并发场景下将系统吞吐性能提升15%。</li>
+            </ul>
+          </li>
+          <li class="job-item">
+            <p>
+              <img src="images/logos/job_ccssoft.jpg" alt="中通服" class="logo-icon">中通服软件科技有限公司 - 运维开发工程师 (2021.08 - 2024.03)
+            </p>
+            <ul>
+              <li>多云资源池统一运维：全面负责上海生产资源池的稳定运行，涵盖VMware、OpenStack及公有云资源，实现年度SLA 99.95%。</li>
+              <li>云原生应用部署：基于OpenShift构建容器平台，通过Docker化与CI/CD标准化，支撑10+项目200+应用实现自动化部署，资源交付效率提升70%。</li>
+              <li>分布式存储优化：独立负责Ceph集群的架构设计和性能调优，完成两次无损扩容，集群三年内保持99.99%的可用性。</li>
+            </ul>
+          </li>
+          <li class="job-item">
+            <p>
+              <img src="images/logos/job_thunisoft.jpg" alt="华宇" class="logo-icon">北京华宇信息技术有限公司 - 运维工程师 (2019.08 - 2021.08)
+            </p>
+            <ul>
+              <li>私有云从0到1建设：独立负责成都研发中心私有云的整体搭建和运维，以及VM全生命周期管理，为上百名开发者提供IaaS服务。</li>
+              <li>构建监控日志中心：部署Zabbix、Prometheus+Grafana及ELK栈，实现基础设施的全栈可观测性，将MTTD（故障平均发现时间）从小时级降至分钟级。</li>
+              <li>网络架构升级：主导新办公区网络规划，设计并实施三层网络架构，管理30+台网络设备，保障了百人团队零中断接入。</li>
+            </ul>
+          </li>
+          <li class="job-item">
+            <p>
+              <img src="images/logos/job_51job.jpg" alt="前锦网络/51job" class="logo-icon">前锦网络信息技术（上海）有限公司 - 运维工程师 (2017.08 - 2019.08)
+            </p>
+            <ul>
+              <li>负责研发中心基础设施运维，并参与自动化运维体系建设。</li>
+            </ul>
+          </li>
+          <li class="job-item">
+            <p>
+              <img src="images/logos/job_aztv.jpg" alt="安州电视台" class="logo-icon">绵阳市安州区文化广电新闻出版局 - 技术助理 (2013.10 - 2017.02)
+            </p>
+            <ul>
+              <li>从事传统IT系统与网络运维，奠定扎实的基础设施管理功底。</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 项目经历 -->
+      <section>
+        <h2 id="项目经历">
+          <i class="fas fa-award"></i> 项目经历
+        </h2>
+        <ul class="project-list">
+          <li class="project-item">
+            <p><i class="fas fa-cloud"></i> 中国通服上海云资源池运维项目 - 云计算运维工程师、云基础设施负责人 (2022.01 - 2024.03)</p>
+            <ul>
+              <li><strong>背景</strong>：所管理的上海核心生产资源池（1500+VM，8集群，800TB+存储）面临性能波动与故障定位效率低的挑战。</li>
+              <li><strong>行动</strong>：
+                <ul>
+                  <li>网络优化：梳理并优化超100条NAT与45条IPSec VPN策略，引入流量分析与抓包诊断标准化流程。</li>
+                  <li>性能调优：对Ceph存储进行深度优化，通过变更存储配置，调整PG分布及OSD参数，并重构CRUSH Map以匹配机房硬件拓扑。</li>
+                </ul>
+              </li>
+              <li><strong>成果</strong>：
+                <ul>
+                  <li>网络相关故障的排查平均时间从2小时降至30分钟以内。</li>
+                  <li>存储集群可用容量提升20%，实现了对资源池性能与容量的精准预测，为年度预算规划提供了可靠数据支撑。</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="project-item">
+            <p><i class="fas fa-code"></i> 中通软创新中台云平台运维开发 - 云运维开发工程师 (2021.08 - 2021.12)</p>
+            <ul>
+              <li><strong>背景</strong>：公司云管产品微服务化后，手动部署低效且易出错，需构建云原生部署体系。</li>
+              <li><strong>行动</strong>：
+                <ul>
+                  <li>Chart开发：使用Go Template语言为20+微服务编写Helm Chart，集成命名模板、服务发现、Cert-Manager证书管理。</li>
+                  <li>生命周期管理：巧妙运用Chart Hooks与Pod生命周期钩子（PostStart），实现服务部署后自动注册到Consul，保障了部署流程的幂等性与安全性。</li>
+                </ul>
+              </li>
+              <li><strong>成果</strong>：
+                <ul>
+                  <li>作为开发主力，从0到1设计并实现了公司核心产品一键交付方案，成功在Rancher平台一键部署。</li>
+                  <li>彻底解决了微服务间通信的证书管理与服务发现难题，将新环境准备时间从人天级缩短至1小时。</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="project-item">
+            <p><i class="fas fa-network-wired"></i> 成都研发中心网络规划设计与实现 - 网络规划设计师 (2019.08 - 2019.12)</p>
+            <ul>
+              <li><strong>背景</strong>：公司研发中心整体搬迁至新办公地址，需对原网络进行架构升级，以支撑500人研发团队。</li>
+              <li><strong>行动</strong>：
+                <ul>
+                  <li>架构设计与标准化：规划设计核心-汇聚-接入三层网络架构，根据业务逻辑严格划分VLAN并实施策略隔离。</li>
+                  <li>安全与无线一体化部署：集成防火墙、上网行为管理及无线控制器，精准规划40+个高密度无线AP点位，实现全区域无缝千兆覆盖。</li>
+                </ul>
+              </li>
+              <li><strong>成果</strong>：
+                <ul>
+                  <li>网络一次性成功割接上线，核心网络可用性达99.99%，稳定支撑了后续所有研发业务。</li>
+                  <li>构建了具备弹性的网络底座，在之后3年内未进行大规模改造，顺利支撑了研发团队规模与业务流量的翻倍增长。</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 教育背景 -->
+      <section>
+        <h2 id="教育背景">
+          <i class="fas fa-user-graduate"></i> 教育背景
+        </h2>
+        <ul class="education-list">
+          <li>
+            <img src="images/logos/edu_uestc.jpg" alt="电子科技大学" class="logo-icon">电子科技大学 - 计算机科学与技术 本科·学士学位 (2021.09 - 2025.06)
+          </li>
+          <li>
+            <img src="images/logos/edu_swust.jpg" alt="西南科技大学" class="logo-icon">西南科技大学 - 应用电子技术 大专 (2010.09 - 2013.06)
+          </li>
+        </ul>
+      </section>
+
+      <!-- 资格证书 -->
+      <section>
+        <h2 id="资格证书">
+          <i class="fas fa-certificate"></i> 资格证书
+        </h2>
+        <ul class="certificates-list">
+          <li>
+            <img src="images/logos/edu_ruankao.jpg" alt="软考" class="logo-icon">计算机技术与软件专业技术资格（水平）证书 - 高级 系统分析师 (2022.05)
+          </li>
+          <li>
+            <img src="images/logos/edu_ruankao.jpg" alt="软考" class="logo-icon">计算机技术与软件专业技术资格（水平）证书 - 高级 系统规划与管理师 (2021.05)
+          </li>
+          <li>
+            <img src="images/logos/edu_ruankao.jpg" alt="软考" class="logo-icon">计算机技术与软件专业技术资格（水平）证书 - 高级 系统架构设计师 (2020.11)
+          </li>
+          <li>
+            <img src="images/logos/edu_ruankao.jpg" alt="软考" class="logo-icon">计算机技术与软件专业技术资格（水平）证书 - 中级 网络工程师 (2019.11)
+          </li>
+        </ul>
+      </section>
+
+      <!-- 与我联系 -->
+      <section>
+        <h2 id="与我联系">
+          <i class="fab fa-weixin"></i> 与我联系
+        </h2>
+        <div class="contact-section">
+          <img src="images/wechat_qr.jpg" alt="微信扫码加好友" class="wechat-qrcode">
+          <p>欢迎通过微信与我联系，期待与您进一步交流！</p>
+        </div>
+      </section>
     </div>
   </div>
+  
   <script src="js/smooth-scroll.min.js"></script>
   <footer id="footer">
     <p></p>
     <p>Copyright © 2025 WangHongwei. All Rights Reserved.</p>
     <p></p>
   </footer>
+  
   <script src="js/jquery.min.js"></script>
   <script src="js/common.js"></script>
   <script src="js/css.escape.js"></script>
