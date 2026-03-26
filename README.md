@@ -42,4 +42,4 @@ resume-docs/
 ---
 
 ## 许可证
-本项目采用Apache License 2.0，详见LICENSE文件。
+本项目采用MIT License，详见LICENSE文件。
